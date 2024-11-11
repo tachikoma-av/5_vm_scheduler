@@ -16,7 +16,7 @@ jobs:
     steps:
       # Step 1: Checkout the code
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v
 
       # Step 2: Set up Python
       - name: Set up Python
@@ -44,7 +44,7 @@ jobs:
 
       # Step 6: Archive logs as artifacts
       - name: Upload test logs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: test-logs
           path: logs/
