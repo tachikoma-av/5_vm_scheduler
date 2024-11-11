@@ -261,7 +261,11 @@ class Node:
     print(f'[node] valid workers are {list(map(lambda w: w.internal_name,self.valid_workers))}')
     self.cache = NodeCache(self.name)
     self.cache.checkConfigChange(current_config=config)
-
+  @classmethod
+  def fromYamlFile(cls,path_to_config:str):
+    with open(path_to_config, 'r') as file:
+      config:dict = yaml.safe_load(file)
+    return cls(config)
   def getWorkerCanRun(self) -> Worker:
     for worker in self.workers:
       worker_cache = self.cache.workers.get(worker.internal_name)
@@ -336,4 +340,5 @@ if __name__ == "__main__":
   file_path = args.file_path
 
   node = Node(file_path)
+  # node = Node.fromYamlFile(file_path)
   node.run()
