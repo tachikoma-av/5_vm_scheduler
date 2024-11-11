@@ -1,0 +1,29 @@
+---
+
+a1:
+  name: "a1" # cannot be empty
+  type: "hyperv"
+  max_run_time_seconds: 28800
+  min_delay_after_run_seconds: 7200
+  execute_while_running: ""
+
+worker_a2:
+  name: "a2" # cannot be empty
+  type: "hyperv"
+  max_run_time_seconds: 7200
+  min_delay_after_run_seconds: 28800
+  execute_while_running: ""
+
+default_worker:
+  name: "a3" # cannot be empty
+  type: "hyperv"
+  max_run_time_seconds: 0
+  min_delay_after_run_seconds: 0
+  execute_while_running: ""
+
+node:
+  workers:
+    - a1
+    - worker_a2
+    - default_worker
+  
